@@ -25,11 +25,13 @@ app.get("/", (req, res) => {
 const quizRoutes = require("./routes/quiz.routes.js");
 const userRoutes = require("./routes/user.routes.js");
 const resultRoutes = require("./routes/result.routes.js");
+const lessonRoutes = require("./routes/lesson.routes.js");
 
 // api routes
 app.use("/api/v1/quiz", quizRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/result", resultRoutes);
+app.use("/api/v1/lesson", lessonRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ------${port}------`);
