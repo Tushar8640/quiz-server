@@ -1,17 +1,18 @@
-const { getAllCategoriesServices } = require("../../services/category.services");
+const { getResultByUserId } = require("../../services/result.services");
 
-exports.getAllCategoriController = async (req, res) => {
+exports.getUserResultController = async (req, res) => {
   try {
-    const categories = await getAllCategoriesServices();
-    if (categories) {
+    const id = req.params.id;
+    const results = await getResultByUserId(id);
+    if (results) {
       res.status(200).json({
         status: "success",
-        categories: categories,
+        results: results,
       });
     } else {
       res.status(200).json({
         status: "failed",
-        message: "Unable to get categories ",
+        message: "Unable to get results ",
       });
     }
   } catch (error) {

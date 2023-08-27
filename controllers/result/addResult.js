@@ -1,21 +1,21 @@
-const { addCategoryServices } = require("../../services/category.services");
+const { addResultServices } = require("../../services/result.services");
 
-exports.addCategoryController =async ( req,res)=>{
+exports.addResultController =async ( req,res)=>{
     try {
         const data = req?.body;
   
-        const category = await addCategoryServices(data);
-        console.log("todo---->", req.body);
-        if (category) {
+        const result = await addResultServices(data);
+        console.log("result---->", req.body);
+        if (result) {
           res.status(200).json({
             status: "success",
-            message: "category added Successfully",
-            category: category,
+            message: "result added Successfully",
+            result: result,
           });
         } else {
           res.status(200).json({
             status: "failed",
-            message: "Unable to add category ",
+            message: "Unable to add result ",
           });
         }
     } catch (error) {
