@@ -5,6 +5,14 @@ const quizSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    lessonId: { type: String, required: true },
+    questions: [
+      {
+        title: { type: String, required: true },
+        options: [],
+        answer: { type: String, required: true },
+      },
+    ],
   },
   {
     timestamps: true,

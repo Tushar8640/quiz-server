@@ -1,17 +1,17 @@
-const { getAllTodoServices } = require("../../services/todo.services");
+const { getAllQuizServices } = require("../../services/quiz.services");
 
-exports.getAllTodoController = async (req, res) => {
+exports.getAllQuizController = async (req, res) => {
   try {
-    const todos = await getAllTodoServices();
-    if (todos) {
+    const quizs = await getAllQuizServices();
+    if (quizs) {
       res.status(200).json({
         status: "success",
-        todos: todos,
+        quizs: quizs,
       });
     } else {
       res.status(200).json({
         status: "failed",
-        message: "Unable to get todos ",
+        message: "Unable to get quizs ",
       });
     }
   } catch (error) {

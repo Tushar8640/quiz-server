@@ -1,21 +1,21 @@
-const { addTodoServices } = require("../../services/todo.services");
+const { addQuizServices } = require("../../services/quiz.services");
 
-exports.addTodoController =async ( req,res)=>{
+exports.addQuizController =async ( req,res)=>{
     try {
         const data = req?.body;
   
-        const todo = await addTodoServices(data);
-        console.log("todo---->", req.body);
-        if (todo) {
+        const quiz = await addQuizServices(data);
+        console.log("quiz---->", req.body);
+        if (quiz) {
           res.status(200).json({
             status: "success",
-            message: "todo added Successfully",
-            todo: todo,
+            message: "quiz added Successfully",
+            quiz: quiz,
           });
         } else {
           res.status(200).json({
             status: "failed",
-            message: "Unable to add todo ",
+            message: "Unable to add quiz ",
           });
         }
     } catch (error) {

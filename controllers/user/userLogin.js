@@ -5,7 +5,7 @@ const dotenv = require("dotenv").config();
 exports.userLogin = async (req, res) => {
   try {
     const user = await getUserByEmail(req?.body?.email);
-    console.log(req.body);
+    console.log(user);
     if (!user) {
       return res.status(200).json({
         status: false,
