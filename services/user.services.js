@@ -22,11 +22,31 @@ exports.getUserByEmail = async (email) => {
   }
 };
 // get user by email
-exports.getAllUserServices = async (email) => {
+exports.getAllUserServices = async () => {
   try {
-    const users = await User.find({ });
+    const users = await User.find({});
     return users;
   } catch (error) {
     console.log(error);
+  }
+};
+// get user by email
+exports.makeAdminService = async (id) => {
+  try {
+    // Find the user by their ID and update their role to 'admin'
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { role: "admin" },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      throw new Error("User not found");
+    }
+
+    return updatedUser;
+  } catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error for handling in your controller
   }
 };

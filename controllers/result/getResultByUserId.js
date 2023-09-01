@@ -3,6 +3,7 @@ const { getResultByUserId } = require("../../services/result.services");
 exports.getUserResultController = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log(id);
     const results = await getResultByUserId(id);
     if (results) {
       res.status(200).json({

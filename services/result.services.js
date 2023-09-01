@@ -7,6 +7,8 @@ exports.addResultServices = async (data) => {
 };
 
 exports.getResultByUserId = async (id) => {
+  console.log(id);
   const result = await Result.find({ userId: id });
+  console.log(result);
   return result;
 };
